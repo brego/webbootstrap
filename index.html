@@ -7,7 +7,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-		<meta http-equiv="imagetoolbar" content="no" />
+		<meta http-equiv="imagetoolbar" content="false" />
 		<meta name="MSSmartTagsPreventParsing" content="true" />
 		
 		<meta name="description" content="" />
@@ -17,25 +17,22 @@
 		
 		<title></title>
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width" />
 
-		<link rel="shortcut icon" href="/favicon.ico" />
-		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<script>console.warn('Remember to add icons on the server. http://mathiasbynens.be/notes/touch-icons');</script>
 
-		<link rel="stylesheet" href="stylesheets/css/style.css?v=1" />
+		<link rel="stylesheet" href="stylesheets/css/style.css" />
 
-		<!-- Re-build me at http://www.modernizr.com/download/ -->
+		<script>console.warn('Remember to rebuild Modernizr. http://www.modernizr.com/download/');</script>
 		<script src="scripts/external/modernizr.min.js"></script>
 	</head>
 	<body>
-		<div id="container">
-			<header>
-			</header>
-			<div id="main">
-			</div>
-			<footer>
-			</footer>
+		<header>
+		</header>
+		<div id="main" role="main">
 		</div>
+		<footer>
+		</footer>
 
 		<!-- External Scripts -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -45,7 +42,7 @@
 		<![endif]-->
 
 		<!-- Custom Scripts -->
-		<script src="scripts/behavior.js?v=1"></script>
+		<script src="scripts/behavior.js"></script>
 
 		<!--[if lt IE 7 ]>
 			<script src="scripts/external/dd_belatedpng.min.js"></script>

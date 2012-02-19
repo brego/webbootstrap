@@ -287,15 +287,6 @@ td {
   vertical-align: top;
 }
 /*
- * Chrome Frame Prompt
- **/
-.chromeframe {
-  margin: 0.2em 0;
-  padding: 0.2em 0;
-  background: #ccc;
-  color: black;
-}
-/*
  * Image replacement
  * Element uses padding-top as height
  **/
