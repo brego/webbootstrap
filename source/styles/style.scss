@@ -1,0 +1,102 @@
+@import 'bourbon';
+@import 'reset';
+@import 'variables';
+@import 'mixins';
+
+// BEGIN: Sensible defaults
+
+html {
+  text-size-adjust: 100%;
+  box-sizing: border-box;
+  -webkit-font-smoothing:   antialiased;
+          font-smoothing:   antialiased;
+  -moz-osx-font-smoothing:  grayscale;
+  text-rendering: optimizeLegibility;
+  hyphens: auto;
+  height: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+@include dynamic-font-size(16px, 22px, 520px, 1200px);
+
+body {
+  @extend %font-body;
+
+  line-height: 1.4;
+  background-color: $bg-color-body;
+  color: $color-body;
+}
+
+.js body {
+  opacity: 0;
+  transition: opacity .275s $ease-out-quint;
+}
+
+.js.wf-active body,
+.js.wf-inactive body {
+  opacity: 1;
+}
+
+p {
+  padding-bottom: 1em;
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
+}
+
+a {
+  @extend %transition-timing;
+
+  text-decoration: none;
+  color: inherit;
+
+  transition: all .2s;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+h2, h3, h4 {
+  @extend %font-headlines;
+}
+
+// END: Sensible defaults
+
+// BEGIN: Site-specific code
+
+main {
+  section {
+    max-width: 40em;
+    margin: auto;
+  }
+}
+
+// END: Site-specific code
+
+// BEGIN: Override classes for common property definition
+
+%clear {
+  @include clearfix;
+}
+
+%font-body {
+  font-family: $font-body;
+}
+
+%font-headlines {
+  font-family: $font-headlines;
+}
+
+%transition-timing {
+  transition-timing-function: $ease-in-out-circ;
+}
+
+// END: Override classes for common property definition
+
+// Basic print style
+@import 'print';

@@ -1,0 +1,20 @@
+// 'Web-safe' font stacks
+$font-georgia:   Georgia, Times, 'Times New Roman', serif;
+$font-helvetica: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-lucida:    'Lucida Grande', Tahoma, Verdana, Arial, sans-serif;
+$font-verdana:   Verdana, 'Bitstream Vera Sans', sans-serif;
+$font-monaco:    Monaco, Consolas, 'Courier New', Courier, 'Liberation Mono', monospace;
+
+// Google fonts
+$font-lato:            'Lato', #{$font-helvetica};
+$font-work-sans:       'Work Sans', #{$font-helvetica};
+$font-marker:          'Permanent Marker', #{$font-lucida};
+$font-source-code-pro: 'Source Code Pro', #{$font-monaco};
+
+// Default fonts
+$font-body:      $font-helvetica;
+$font-headlines: $font-georgia;
+
+// Default colors
+$bg-color-body: #f5f5f5;
+$color-body:    #222222;

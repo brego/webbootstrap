@@ -1,0 +1,48 @@
+@mixin respond-to($media) {
+  $break-small:  520px;
+  $break-medium: 750px;
+  $break-large:  1024px;
+  @if $media == handhelds {
+    @media only screen and (max-width: $break-small) { @content; }
+  } @else if $media == below-medium {
+    @media only screen and (max-width: $break-medium) { @content; }
+  } @else if $media == medium-screens {
+    @media only screen and (min-width: $break-small + 1) and (max-width: $break-large - 1) { @content; }
+  } @else if $media == wide-screens {
+    @media only screen and (min-width: $break-large) { @content; }
+  }
+}
+
+// Produces dynamic font sizing, with pixel-based steps. The px distance
+// between $min-with and $max-width gets divided into amount of px steps
+// between $min-font & &max-font. The resulting queries should scale the
+// font evenly.
+//
+// Call to @include dynamic-font-size(16px, 22px, 520px, 1000px); will
+// produce folowing CSS:
+//
+// @media all                        {body {font-size: 22px;}}
+// @media all and (max-width:1000px) {body {font-size: 22px;}}
+// @media all and (max-width:920px)  {body {font-size: 21px;}}
+// @media all and (max-width:840px)  {body {font-size: 20px;}}
+// @media all and (max-width:760px)  {body {font-size: 19px;}}
+// @media all and (max-width:680px)  {body {font-size: 18px;}}
+// @media all and (max-width:600px)  {body {font-size: 17px;}}
+// @media all and (max-width:520px)  {body {font-size: 16px;}}
+
+@mixin dynamic-font-size($min-font, $max-font, $min-width, $max-width, $element: 'html') {
+  $steps:      strip-units($max-font) - strip-units($min-font);
+  $step-delta: strip-units($max-width) - strip-units($min-width);
+  $delta: $step-delta / $steps;
+
+//	@media all {#{$element} {font-size: $max-font;}}
+  #{$element} {font-size: $max-font;}
+
+  @for $i from $steps through 0 {
+    @media all and (max-width: round($max-width - (($steps - $i) * $delta))) {#{$element} {font-size: $max-font - ($steps - $i);}}
+  }
+}
+
+@function imgurl($file) {
+  @return url("../images/#{$file}");
+}
